@@ -1,26 +1,31 @@
-let edges = [
-	['14th&6th', '23rd&6th'],
-	['23rd&6th', '34th&6th'],
-	['34th&6th', '28th&Bwy'],
-	['28th&Bwy', '23rd&Bwy'],
-	['23rd&Bwy', '14th&Lex'],
-	['14th&Lex', '23rd&Lex']
-]
-
-let vertices = [
-  {name: '34th&6th', discovered: null},
-  {name: '23rd&6th', discovered: null},
-  {name: '14th&6th', discovered: null},
-  {name: '28th&Bwy', discovered: null},
-	{name: '23rd&Bwy', discovered: null},
-  {name: '14th&Lex', discovered: null},
-	{name: '23rd&Lex', discovered: null}
-]
-
-
-describe('#depthFirstSearch', function() {
-	it('prints out the nodes in order', function(){
-		let rootNode = vertices[0]
-		expect(depthFirstSearch(rootNode, vertices, edges).map(function(vertex){return vertex.name;})).toEqual(['34th&6th', '23rd&6th', '28th&Bwy', '23rd&Bwy', '14th&Lex', '23rd&Lex', '14th&6th'])
+describe('#bruteForceTwoSum', function() {
+	it("collects each pair of numbers with a matching sum", function() {
+		let array = [2, 3, 4, 3, 6, 7]
+		let sum = 6
+		expect(bruteForceTwoSum(array, sum)).toEqual([[2, 4], [3, 3]])
 	})
-});
+})
+
+describe('#binarySearchTwoSum', function() {
+	it("collects each pair of numbers with a matching sum", function() {
+		let array = [2, 3, 4, 3, 6, 7]
+		let sum = 6
+		expect(binarySearchTwoSum(array, sum)).toEqual([[2, 4], [3, 3]])
+	})
+})
+
+describe('#binaryMatch', function() {
+	it("returns true when a match is found", function() {
+		let missingNum = 6
+		let sortedArray = [2, 3, 3, 4, 6, 7]
+		expect(binaryMatch(sortedArray, missingNum)).toEqual(true)
+	})
+})
+
+describe('#hashTwoSum', function() {
+	it("collects each pair of numbers with a matching sum", function() {
+		let array = [2, 3, 4, 3, 6, 7]
+		let sum = 6
+		expect(hashTwoSum(array, sum)).toEqual([[2, 4], [3, 3]])
+	})
+})

@@ -170,6 +170,18 @@ Then you want to check edge cases: does your code handle an array that is null? 
 
 Finally, if time permits, see if there are any shortcuts you can employ.  For example, if you know that our array does not accept negative numbers, then we can eliminate any number greater than our sum as a potential candidate as a solution to the two-sum problem.
 
+### Summary 
+
+So do you see all of that work we did before we began coding?  That is the work we need to employ.
+
+1. Clarify the problem 
+2. Problem Solve 
+3. Translate to code
+
+And the entire way, make sure you are communicating to your interviewer.  Even if an idea doesn't end up being pursued, it is still good to bring the interviewer along in your thinking process.  Your interviewer will want a developer on their team who shares their thinking, and shares even wrong ideas so that the rest of the team can save time in not pursuing them.
+
+Finally, as you go through these problems, its good for you to create your own checklist.  What techniques are you employing?  How do you get unstuck?  What are good data structures to think about?
+
 ### Get to it
 
-We will ask you to implement each of the implementations covered by the two sum problem.     
+We will ask you to implement each of the implementations covered by the two sum problem.
