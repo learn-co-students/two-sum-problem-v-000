@@ -1,4 +1,4 @@
-## The Two Sum Problem.
+## The Two Sum Problem
 
 ### Intro
 
