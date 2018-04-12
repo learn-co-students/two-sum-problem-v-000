@@ -51,14 +51,13 @@ function hashTwoSum(array, targetSum) {
   array.forEach((number, index) => {
     hash[number] = true;
   });
-  for (let number of hash) {
+  for (let number in hash) {
     const targetVal = targetSum - number;
     if (hash[targetVal]) {
-      combos.push([number, targetVal]);
+      combos.push([parseInt(number), targetVal]);
       delete hash[number];
-      delete hash[targetVal];
     }
-  });
+  }
   return combos;
 }
 
