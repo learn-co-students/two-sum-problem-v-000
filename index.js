@@ -24,14 +24,13 @@ function binarySearchTwoSum(array, sum){
     num1 = array.shift()
     wouldBeNum2 = sum - num1
 
-    if (binarySearch(array, wouldBeNum2)){
+    if (binaryMatch(array, wouldBeNum2)){
       matchingPairs.push([num1, wouldBeNum2])
     }
   }
 
   return matchingPairs
 }
-
 
 // SUPPORT FUNCTIONS
 function mergeSort(array){
@@ -47,7 +46,7 @@ function mergeSort(array){
   }
 }
 
-function binarySearch(array, target){
+function binaryMatch(array, target){
   // find the midpoint
   let midpointIndex = Math.floor(array.length / 2)
   let midpointValue = array[midpointIndex]
@@ -74,7 +73,7 @@ function binarySearch(array, target){
     if (lowIndex === highIndex)
       { return false }
     else
-      { return binarySearch(array.slice(lowIndex, highIndex), target) }
+      { return binaryMatch(array.slice(lowIndex, highIndex), target) }
   }
 }
 
