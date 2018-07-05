@@ -32,6 +32,31 @@ function binarySearchTwoSum(array, sum){
   return matchingPairs
 }
 
+function hashTwoSum(array, sum){
+  let hash = {}
+  for (let el of array){
+    hash[`${el.toString()}`] = true
+  }
+
+  let matchingPairs = []
+  let num1, wouldBeNum2
+  while (0 !== array.length){
+    console.log(hash)
+    // pop() would be faster but would not pass test as written!
+    num1 = array.shift()
+    wouldBeNum2 = sum - num1
+    if (hash[`${wouldBeNum2.toString()}`]){
+      // avoid using the same key more than once
+      delete hash[`${wouldBeNum2.toString()}`]
+      delete hash[`${num1.toString()}`]
+
+      matchingPairs.push([num1, wouldBeNum2])
+    }
+  }
+
+  return matchingPairs
+}
+
 // SUPPORT FUNCTIONS
 function mergeSort(array){
   if (1 === array.length) {
@@ -50,10 +75,6 @@ function binaryMatch(array, target){
   // find the midpoint
   let midpointIndex = Math.floor(array.length / 2)
   let midpointValue = array[midpointIndex]
-
-  console.log("array: " + array)
-  console.log("midpoint: " + midpointIndex)
-  console.log("midpointValue: " + midpointValue)
 
   // check to see if we have scored a direct hit!
   if (midpointValue === target){
