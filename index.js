@@ -1,4 +1,4 @@
-function bruteTwoForceSum(array, sum){
+function bruteForceTwoSum(array, sum){
     let matchingPairs = []
     let num1
 
