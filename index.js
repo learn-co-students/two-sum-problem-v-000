@@ -1,29 +1,66 @@
 
 
+
 function bruteForceTwoSum(arr, sum) {
   let pairs = []
 
-  let indexCheckedFully = {}
+  // let indexCheckedFully = {}
 
-  arr.forEach( (num, index) => {
+  // arr.forEach( (num, index) => {
 
-    indexCheckedFully[index] = true
+    // indexCheckedFully[index] = true
 
-    for (let i = 0; i < arr.length; i ++) {
-
-      if (indexCheckedFully[i] === true) {
-        continue
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === sum) {
+        pairs.push([arr[i], arr[j]])
       }
-      if (num + arr[i] === 6 ) {
-        pairs.push([num, arr[i]])
-      }
-
     }
-
-  })
-
+  }
   return pairs
 }
+
+
+    //   if (indexCheckedFully[i] === true) {
+    //     continue
+    //   }
+    //   if (num + arr[i] === 6 ) {
+    //     pairs.push([num, arr[i]])
+    //   }
+    //
+    // }
+
+//   })
+//
+//   return pairs
+// }
+
+// This works:
+// function bruteForceTwoSum(arr, sum) {
+//   let pairs = []
+//
+//   let indexCheckedFully = {}
+//
+//   arr.forEach( (num, index) => {
+//
+//     indexCheckedFully[index] = true
+//
+//     for (let i = 0; i < arr.length; i ++) {
+//
+//       if (indexCheckedFully[i] === true) {
+//         continue
+//       }
+//       if (num + arr[i] === 6 ) {
+//         pairs.push([num, arr[i]])
+//       }
+//
+//     }
+//
+//   })
+//
+//   return pairs
+// }
+
 // This returns repeat pairs
 // function bruteForceTwoSum(arr, sum) {
 //   let pairs = []
@@ -76,8 +113,12 @@ function bruteForceTwoSum(arr, sum) {
 function binarySearchTwoSum(arr, sum) {
 
   let pairs = []
+  // let indexCheckedFully = {}
+
 
   arr.forEach( (num, index) => {
+
+    // indexCheckedFully[index] = true
 
     let target = sum - num
 
@@ -86,8 +127,11 @@ function binarySearchTwoSum(arr, sum) {
 
     while (floorIndex + 1 < ceilingIndex) {
 
-        midpointIndex = floorIndex + ceilingIndex/2
+        let midpointIndex = floorIndex + ceilingIndex/2
 
+        // if (!indexCheckedFully[midpointIndex]) {
+        //   continue
+        // }
         if (arr[midpointIndex] === target) {
           return pairs.push([num, arr[midpointIndex]])
         }
@@ -108,7 +152,42 @@ function binaryMatch(sortedArray, missingNum){
 }
 
 
-function hashTwoSum(arr, sum) {
+// function hashTwoSum(arr, sum) {
+//
+//   let pairs = []
+//
+//   let numberChecker = { }
+//
+//   arr.forEach( (num) => {
+//     return numberChecker[num] = true
+//   })
+//
+//   arr.forEach( num => {
+//     const target = sum - num
+//
+//     if (numberChecker[target]) {
+//       pairs.push([num, target])
+//       // Indicate number can no longer be used to avoid duplicates
+//       numberChecker[target] = false
+//     }
+//
+//
+//
+//
+//   })
+//
+//   return pairs
+// }
 
 
+function hashTwoSum(arr, target){
+  let map = {}, results = [];
+  for (let i=0; i<arr.length; i++) {
+    if (map[arr[i]] !== undefined) {
+      results.push([map[arr[i]], arr[i]])
+    } else {
+      map[target - arr[i]] = arr[i];
+    }
+  }
+  return results;
 }
