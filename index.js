@@ -1,13 +1,17 @@
 
-// This returns repeat pairs
+
 function bruteForceTwoSum(arr, sum) {
   let pairs = []
 
+  let indexCheckedFully = {}
+
   arr.forEach( (num, index) => {
+
+    indexCheckedFully[index] = true
 
     for (let i = 0; i < arr.length; i ++) {
 
-      if (index === i) {
+      if (indexCheckedFully[i] === true) {
         continue
       }
       if (num + arr[i] === 6 ) {
@@ -20,6 +24,27 @@ function bruteForceTwoSum(arr, sum) {
 
   return pairs
 }
+// This returns repeat pairs
+// function bruteForceTwoSum(arr, sum) {
+//   let pairs = []
+//
+//   arr.forEach( (num, index) => {
+//
+//     for (let i = 0; i < arr.length; i ++) {
+//
+//       if (index === i) {
+//         continue
+//       }
+//       if (num + arr[i] === 6 ) {
+//         pairs.push([num, arr[i]])
+//       }
+//
+//     }
+//
+//   })
+//
+//   return pairs
+// }
 
 // This is missing one pair
 // function bruteForceTwoSum(arr, sum) {
