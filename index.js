@@ -52,7 +52,7 @@ function binarySearchTwoSum(arr, sum) {
 
   let pairs = []
 
-  arr.forEach( (num, index) = {
+  arr.forEach( (num, index) => {
 
     let target = sum - num
 
@@ -74,20 +74,16 @@ function binarySearchTwoSum(arr, sum) {
 
     }
 
-  }
+  })
   return pairs
+}
+
+function binaryMatch(sortedArray, missingNum){
+  return sortedArray.includes(missingNum) ? true : false
 }
 
 
 function hashTwoSum(arr, sum) {
-
-}
-
-
-
-
-
-  })
 
 
 }
