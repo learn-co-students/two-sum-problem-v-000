@@ -28,7 +28,7 @@ function binarySearchTwoSum(array, sum){
 
 function binaryMatch(sortedArray, missingNum){
   if(sortedArray.length > 1){
-    let mid = sortedArray.length/2 -1
+    let mid = Math.floor(sortedArray.length/2)
     if(sortedArray[mid] === missingNum){return true}
     if(sortedArray[mid] > missingNum){
       return binaryMatch(sortedArray.slice(0, mid), missingNum)
