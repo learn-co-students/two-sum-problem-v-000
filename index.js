@@ -28,13 +28,13 @@ function binarySearchTwoSum(array, sum){
 
 function binaryMatch(sortedArray, missingNum){
   if(sortedArray.length > 1){
-    let mid = sortedArray.length/2
+    let mid = sortedArray.length/2 -1
     if(sortedArray[mid] === missingNum){return true}
-      if(sortedArray[mid] > missingNum){
-        return binaryMatch(sortedArray.slice(0, mid), missingNum)
-      }else{
-        return binaryMatch(sortedArray.slice(mid), missingNum)
-      }
+    if(sortedArray[mid] > missingNum){
+      return binaryMatch(sortedArray.slice(0, mid), missingNum)
+    }else{
+      return binaryMatch(sortedArray.slice(mid+1), missingNum)
+    }
   }else{
     return sortedArray[0] === missingNum
   }
