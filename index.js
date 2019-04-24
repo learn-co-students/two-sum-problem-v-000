@@ -43,3 +43,17 @@ function binarySearchTwoSum(array, sum) {
   }
   return result
 }
+
+
+function hashTwoSum(array, sum) {
+  let result = []
+  let map = {}
+  array.map(element => map[element] = true)
+  for(let i = 0; array[i] <= sum / 2; i++) {
+    let difference = sum - array[i]
+    if (map[difference]) {
+      result.push([array[i], difference])
+    }
+  }
+  return result
+}
