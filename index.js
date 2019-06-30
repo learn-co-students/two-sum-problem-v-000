@@ -1,10 +1,10 @@
-var bruteForceTwoSum = function (nums, target) {
+var bruteForceTwoSum = function (arr, target) {
     var result = [];
 
     for (var i = 0; i < nums.length; i++) {
         for (var j = i + 1; j < nums.length; j++) {
-            if (nums[i] + nums[j] === target) {
-                result.push([nums[i],nums[j]]);
+            if (arr[i] + arr[j] === target) {
+                result.push([arr[i],arr[j]]);
 
             }
         }
@@ -15,6 +15,7 @@ var bruteForceTwoSum = function (nums, target) {
 
 function hashTwoSum(arr, target) {
     let numObject = {};
+    var result = [];
     for (var i = 0; i < arr.length; i++) {
         let thisNum = arr[i];
         numObject[thisNum] = i;
@@ -22,7 +23,8 @@ function hashTwoSum(arr, target) {
     for (var i = 0; i < arr.length; i++) {
         let diff = target - arr[i];
         if (numObject.hasOwnProperty(diff) && numObject[diff] !== i) {
-            return [i, numObject[diff]];
+            result.push([arr[i], diff]);
         }
     }
+    return result;
 }
