@@ -33,6 +33,33 @@ function binarySearchTwoSum(array, sum) {
   return sums;
 }
 
+function binaryMatch(sortedArray, missingNum) {
+  if (sortedArray.length == 0 ) {
+    return false;
+  } else if (sortedArray.length == 1) {
+    if (sortedArray[0] == missingNum) {
+      return true;
+    } else if (sortedArray[0] != missingNum) {
+      return false;
+    }
+  } else if (sortedArray.length > 1) {
+    let startInd = Math.floor(sortedArray.length/2);
+    let startNum = sortedArray[startInd];
+    let newArr;
+    if (startNum == missingNum) {
+      return true;
+    } else if (startNum < missingNum) {
+      //check the numbers to right
+      newArr = sortedArray.slice(startInd+1);
+      return binaryMatch(newArr, missingNum)
+    } else if (startNum > missingNum) {
+      //check nums to left
+      newArr = sortedArray.slice(0,startInd)
+      return binaryMatch(newArr, missingNum)
+    }
+  }
+}
+
 function hashTwoSum(array, sum) {
   let sums = [];
   let hashTable = {};
